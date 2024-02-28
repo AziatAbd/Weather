@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Camera, CameraView } from "expo-camera/next";
+import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import Navigate from "./navigation/Navigate";
+import { CityContextProvider } from "./contexts/CityContext";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CityContextProvider>
+      <View style={styles.container}>
+        <Navigate />
+        <StatusBar style="auto" />
+      </View>
+    </CityContextProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
   },
 });
